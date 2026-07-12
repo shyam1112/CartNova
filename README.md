@@ -26,7 +26,24 @@ npm run preview # preview the production build locally
 
 ## Before going live
 
-1. **Wire up the contact form.** Create a free form at [formspree.io](https://formspree.io) pointed at your inbox, then replace `FORMSPREE_ENDPOINT` in `src/pages/Contact.jsx` with your real endpoint URL.
-2. **Replace placeholder content.** `src/data/content.js` holds all portfolio case studies and client testimonials — these are placeholders and should be swapped for real client work/names before publishing, so visitors aren't shown fabricated testimonials.
-3. **Update contact details** in `src/components/Footer.jsx` and `src/pages/Contact.jsx` if your email/hours change.
-4. **Deploy** — the `dist/` folder from `npm run build` can be deployed to Netlify, Vercel, GitHub Pages, or any static host.
+1. **Replace placeholder content.** `src/data/content.js` holds portfolio case studies and testimonials. Several are real (marked `live: true`) but a few are still placeholders — swap them for real client work before publishing so visitors aren't shown fabricated testimonials.
+2. **Update contact details** in `src/components/Footer.jsx` and `src/pages/Contact.jsx` if your hours/availability change.
+3. **Confirm the domain.** All SEO metadata (`index.html`, `src/hooks/useSeo.js`, `public/robots.txt`, `public/sitemap.xml`) assumes the site will live at `https://thecartnova.com`. If that changes, update the `SITE_URL` in `src/hooks/useSeo.js` and the URLs in those four files.
+4. **Deploy** — a `vercel.json` rewrite config is included so client-side routes (`/services`, `/portfolio`, etc.) work correctly on Vercel. The `dist/` folder from `npm run build` can also be deployed to Netlify, GitHub Pages, or any static host (Netlify needs an equivalent `_redirects` file with `/* /index.html 200`).
+
+## SEO
+
+The site ships with on-page SEO already handled:
+
+- Unique `<title>` and meta description per page (`src/hooks/useSeo.js`), plus Open Graph/Twitter Card tags and canonical URLs
+- A branded social-share image at `public/og-image.jpg`
+- `Organization` JSON-LD structured data in `index.html`
+- `public/robots.txt` and `public/sitemap.xml`
+
+**On-page SEO alone won't make the site rank #1 for "Cartnova" — that also depends on:**
+
+1. **Getting indexed.** Once live, add the site to [Google Search Console](https://search.google.com/search-console), verify ownership, and submit `https://thecartnova.com/sitemap.xml`.
+2. **Google Business Profile.** Create one at [business.google.com](https://business.google.com) with the name "Cartnova" — this is one of the strongest signals for winning brand-name searches.
+3. **Consistent naming.** Use "Cartnova" exactly and consistently across LinkedIn, Twitter/X, Instagram, GitHub, Clutch/Upwork profiles, etc., and link them back to the site. Once you have these, add them to the `sameAs` array in the `Organization` JSON-LD block in `index.html`.
+4. **Backlinks.** Getting the live client sites (Redskapsfabrikken, Proffdeler) or directories like Clutch to link back to thecartnova.com strengthens the domain's authority.
+5. **Time.** Brand-name rankings for a brand-new domain typically take a few weeks to consolidate after indexing, even with everything above in place.

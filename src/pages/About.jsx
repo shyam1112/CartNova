@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { STATS } from '../data/content'
 import useReveal from '../hooks/useReveal'
+import useSeo from '../hooks/useSeo'
 import CountUp from '../components/CountUp'
 import './About.css'
 
@@ -31,6 +32,12 @@ const TEAM = [
 ]
 
 export default function About() {
+  useSeo({
+    title: 'About Us — Shopify Solutions Partner',
+    description:
+      'Cartnova is a focused Shopify solutions agency specializing in Shopify development, theme design, custom apps, and Shopify Plus builds.',
+    path: '/about',
+  })
   const [storyRef, storyVisible] = useReveal()
   const [valuesRef, valuesVisible] = useReveal()
   const [teamRef, teamVisible] = useReveal()

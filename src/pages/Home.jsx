@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom'
 import { SERVICES, PROCESS, STATS, TESTIMONIALS, PORTFOLIO } from '../data/content'
 import useReveal from '../hooks/useReveal'
+import useSeo from '../hooks/useSeo'
 import CountUp from '../components/CountUp'
 import './Home.css'
 
 const BRANDS = ['Shopify', 'Shopify Plus', 'Liquid', 'Shopify Functions', 'Hydrogen', 'App Bridge']
 
 export default function Home() {
+  useSeo({
+    description:
+      'Cartnova is a Shopify solutions agency — Shopify development, custom theme design, custom apps, Shopify Plus, checkout extensions, supplier database integrations, and store migrations.',
+    path: '/',
+  })
   const [statsRef, statsVisible] = useReveal()
   const [servicesRef, servicesVisible] = useReveal()
   const [processRef, processVisible] = useReveal()

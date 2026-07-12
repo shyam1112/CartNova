@@ -160,6 +160,14 @@ export const PORTFOLIO = [
     live: true,
   },
   {
+    title: 'Proffdeler',
+    category: 'Store Migration',
+    tags: ['200,000+ Product Migration', 'Built From Scratch', 'B2B Parts Catalog'],
+    description: 'Norway\'s OEM parts marketplace for excavators and construction machinery, covering 35+ machine brands. We built the Shopify store from the ground up and migrated a 200,000+ product supplier catalog, with a brand/model part-finder built for workshops and contractors.',
+    url: 'https://www.proffdeler.no/',
+    live: true,
+  },
+  {
     title: 'Loomcraft Home',
     category: 'Migration & Theme Design',
     tags: ['Magento Migration', 'Custom Theme'],

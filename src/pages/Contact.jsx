@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FAQS } from '../data/content'
 import { FORMSPREE_ENDPOINT, PROJECT_TYPES, BUDGETS } from '../data/config'
 import useReveal from '../hooks/useReveal'
+import useSeo from '../hooks/useSeo'
 import './Contact.css'
 
 const initialForm = {
@@ -14,6 +15,12 @@ const initialForm = {
 }
 
 export default function Contact() {
+  useSeo({
+    title: 'Contact Us — Get a Free Shopify Consultation',
+    description:
+      'Get in touch with Cartnova for a free consultation on your Shopify development, migration, or custom app project.',
+    path: '/contact',
+  })
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle')
   const [errorMessage, setErrorMessage] = useState('')

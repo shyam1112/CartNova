@@ -2,11 +2,18 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PORTFOLIO } from '../data/content'
 import useReveal from '../hooks/useReveal'
+import useSeo from '../hooks/useSeo'
 import './Portfolio.css'
 
 const FILTERS = ['All', ...new Set(PORTFOLIO.map((p) => p.category))]
 
 export default function Portfolio() {
+  useSeo({
+    title: 'Portfolio — Shopify Projects & Case Studies',
+    description:
+      'Real Shopify projects delivered by Cartnova, including multi-supplier inventory sync, 200,000+ product catalog migrations, and custom Shopify Plus builds.',
+    path: '/portfolio',
+  })
   const [active, setActive] = useState('All')
   const [gridRef, gridVisible] = useReveal()
   const [ctaRef, ctaVisible] = useReveal()

@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
 import { SERVICES } from '../data/content'
 import useReveal from '../hooks/useReveal'
+import useSeo from '../hooks/useSeo'
 import './Services.css'
 
 export default function Services() {
+  useSeo({
+    title: 'Shopify Development, Theme Design & Custom App Services',
+    description:
+      'Shopify development, custom theme design, custom apps, Shopify Plus builds, checkout extension development, and store migration services from Cartnova.',
+    path: '/services',
+  })
   const [listRef, listVisible] = useReveal()
   const [ctaRef, ctaVisible] = useReveal()
 
