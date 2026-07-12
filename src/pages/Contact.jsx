@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FAQS } from '../data/content'
-import { FORMSPREE_ENDPOINT, PROJECT_TYPES, BUDGETS, CONTACT_EMAIL } from '../data/config'
+import { FORMSPREE_ENDPOINT, PROJECT_TYPES, BUDGETS } from '../data/config'
 import useReveal from '../hooks/useReveal'
 import './Contact.css'
 
@@ -65,8 +65,8 @@ export default function Contact() {
             </p>
 
             <div className="contact-info__item">
-              <span className="contact-info__label">Email</span>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <span className="contact-info__label">How to reach us</span>
+              <span>Fill out the form — we'll reply straight to your email</span>
             </div>
             <div className="contact-info__item">
               <span className="contact-info__label">Availability</span>
@@ -165,9 +165,7 @@ export default function Contact() {
 
                 {status === 'error' && (
                   <p className="contact-form__error">
-                    Something went wrong. Please try again or email us directly at
-                    {' '}
-                    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                    Something went wrong sending your message. Please wait a moment and try again.
                   </p>
                 )}
               </>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FORMSPREE_ENDPOINT, PROJECT_TYPES, CONTACT_EMAIL } from '../data/config'
+import { FORMSPREE_ENDPOINT, PROJECT_TYPES } from '../data/config'
 import './InquiryModal.css'
 
 const SESSION_KEY = 'cartnova-inquiry-seen'
@@ -174,8 +174,7 @@ export default function InquiryModal() {
 
                   {status === 'error' && (
                     <p className="inquiry-form__error">
-                      Something went wrong. Please email us directly at{' '}
-                      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                      Something went wrong sending your inquiry. Please wait a moment and try again.
                     </p>
                   )}
                 </form>

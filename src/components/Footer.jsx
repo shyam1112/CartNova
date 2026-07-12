@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CONTACT_EMAIL } from '../data/config'
+import logo from '../assets/logo-white.png'
 import './Footer.css'
 
 const SERVICE_LINKS = [
@@ -29,8 +29,7 @@ export default function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <Link to="/" className="footer__logo">
-            <span className="navbar__mark">C</span>
-            Cartnova
+            <img src={logo} alt="Cartnova" className="footer__logo-img" />
           </Link>
           <p>
             A dedicated Shopify solutions partner — from custom storefronts and app development
@@ -63,7 +62,7 @@ export default function Footer() {
           <h4>Get in touch</h4>
           <ul>
             <li>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <Link to="/contact">Send us a message →</Link>
             </li>
             <li className="footer__muted">Remote-first &amp; globally available</li>
             <li className="footer__muted">Mon–Sat, 9am–7pm IST</li>

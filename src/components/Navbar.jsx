@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import logo from '../assets/logo-white.png'
 import './Navbar.css'
 
 const LINKS = [
@@ -29,8 +30,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <NavLink to="/" className="navbar__logo" onClick={() => setOpen(false)}>
-          <span className="navbar__mark">C</span>
-          Cartnova
+          <img src={logo} alt="Cartnova" className="navbar__logo-img" />
         </NavLink>
 
         <nav className="navbar__links navbar__links--desktop">

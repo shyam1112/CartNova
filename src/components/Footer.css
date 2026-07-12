@@ -41,13 +41,13 @@
 }
 
 .footer__logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 19px;
-  color: #fff;
+}
+
+.footer__logo-img {
+  height: 28px;
+  width: auto;
 }
 
 .footer__brand p {
