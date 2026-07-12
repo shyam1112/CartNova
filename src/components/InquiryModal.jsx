@@ -17,6 +17,7 @@ export default function InquiryModal() {
   const [open, setOpen] = useState(false)
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY)) return undefined
@@ -61,9 +62,13 @@ export default function InquiryModal() {
         setStatus('success')
         setForm(initialForm)
       } else {
+        const data = await res.json().catch(() => null)
+        const message = data?.errors?.map((err) => err.message).join(', ')
+        setErrorMessage(message || 'Something went wrong sending your inquiry. Please wait a moment and try again.')
         setStatus('error')
       }
     } catch {
+      setErrorMessage('Something went wrong sending your inquiry. Please wait a moment and try again.')
       setStatus('error')
     }
   }
@@ -172,11 +177,7 @@ export default function InquiryModal() {
                     {status === 'submitting' ? 'Sending...' : 'Send Inquiry'}
                   </button>
 
-                  {status === 'error' && (
-                    <p className="inquiry-form__error">
-                      Something went wrong sending your inquiry. Please wait a moment and try again.
-                    </p>
-                  )}
+                  {status === 'error' && <p className="inquiry-form__error">{errorMessage}</p>}
                 </form>
               </>
             )}

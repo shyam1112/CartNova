@@ -16,6 +16,7 @@ const initialForm = {
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const [formRef, formVisible] = useReveal()
   const [faqRef, faqVisible] = useReveal()
 
@@ -36,9 +37,13 @@ export default function Contact() {
         setStatus('success')
         setForm(initialForm)
       } else {
+        const data = await res.json().catch(() => null)
+        const message = data?.errors?.map((err) => err.message).join(', ')
+        setErrorMessage(message || 'Something went wrong sending your message. Please wait a moment and try again.')
         setStatus('error')
       }
     } catch {
+      setErrorMessage('Something went wrong sending your message. Please wait a moment and try again.')
       setStatus('error')
     }
   }
@@ -163,11 +168,7 @@ export default function Contact() {
                   {status === 'submitting' ? 'Sending...' : 'Send Message'}
                 </button>
 
-                {status === 'error' && (
-                  <p className="contact-form__error">
-                    Something went wrong sending your message. Please wait a moment and try again.
-                  </p>
-                )}
+                {status === 'error' && <p className="contact-form__error">{errorMessage}</p>}
               </>
             )}
           </form>

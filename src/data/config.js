@@ -1,6 +1,6 @@
 // Replace with your own Formspree endpoint: create a form at https://formspree.io
 // pointed at your inbox, then paste its endpoint URL here.
-export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
+export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojgarve'
 
 export const PROJECT_TYPES = [
   'Shopify Development',
