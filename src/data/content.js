@@ -168,6 +168,14 @@ export const PORTFOLIO = [
     live: true,
   },
   {
+    title: 'Shop Learners',
+    category: 'Custom App',
+    tags: ['Custom Theme Design', 'Custom SMS Marketing App'],
+    description: 'A Black-history-inspired apparel brand built around statement-piece graphic tees. We redesigned the entire storefront to match the client\'s vision and built a custom Shopify app letting the client send SMS messages directly to customers\' phones for drops and promotions.',
+    url: 'https://learnblackhistory.com/',
+    live: true,
+  },
+  {
     title: 'Loomcraft Home',
     category: 'Migration & Theme Design',
     tags: ['Magento Migration', 'Custom Theme'],

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const SITE_NAME = 'Cartnova'
-const SITE_URL = 'https://thecartnova.com'
+const SITE_URL = 'https://www.thecartnova.com'
 const DEFAULT_TITLE = 'Cartnova — Shopify Development & Ecommerce Solutions'
 
 function setMetaTag(attr, key, content) {
